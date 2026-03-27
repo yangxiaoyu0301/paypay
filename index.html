@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>宝宝辅食排敏助手</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>宝宝辅食排敏助手</h1>
+        <p>单一食材 · 少量开始 · 连续观察 3 天</p>
+      </div>
+      <span class="pill">家庭记录工具</span>
+    </header>
+
+    <main class="container">
+      <section class="card stats" id="stats"></section>
+
+      <section class="card">
+        <h2>宝宝档案</h2>
+        <form id="baby-form" class="grid-form">
+          <label>宝宝昵称 <input id="baby-name" required placeholder="例如：小米" /></label>
+          <label>出生日期 <input id="baby-birthday" type="date" required /></label>
+          <label class="full">既往敏感史 <textarea id="baby-history" rows="2" placeholder="例如：湿疹、家族过敏史"></textarea></label>
+          <button type="submit">保存档案</button>
+        </form>
+        <p id="baby-summary" class="muted"></p>
+      </section>
+
+      <section class="card two-col">
+        <div>
+          <h2>添加排敏食材</h2>
+          <form id="food-form" class="grid-form">
+            <label>食材名称 <input id="food-name" required placeholder="例如：鸡蛋黄" /></label>
+            <label>首次尝试 <input id="food-date" type="date" required /></label>
+            <label>初始份量 <input id="food-amount" required placeholder="例如：1/4 茶匙" /></label>
+            <label>风险等级
+              <select id="food-risk">
+                <option value="低">低</option>
+                <option value="中">中</option>
+                <option value="高">高</option>
+              </select>
+            </label>
+            <button type="submit">添加食材</button>
+          </form>
+        </div>
+
+        <div>
+          <h2>记录观察症状</h2>
+          <form id="symptom-form" class="grid-form">
+            <label>关联食材 <select id="symptom-food"></select></label>
+            <label>观察日期 <input id="symptom-date" type="date" required /></label>
+            <label>严重程度
+              <select id="symptom-severity">
+                <option value="无异常">无异常</option>
+                <option value="轻微">轻微</option>
+                <option value="中等">中等</option>
+                <option value="严重">严重</option>
+              </select>
+            </label>
+            <label class="full">症状描述 <textarea id="symptom-note" rows="3" required placeholder="例如：嘴角轻微红疹，2 小时后减轻"></textarea></label>
+            <button type="submit">保存观察</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="title-row">
+          <h2>排敏看板</h2>
+          <div class="toolbar">
+            <button id="seed-btn" type="button" class="ghost">填充示例</button>
+            <button id="export-btn" type="button">导出 JSON</button>
+            <button id="reset-btn" type="button" class="danger">清空数据</button>
+          </div>
+        </div>
+        <div id="board"></div>
+      </section>
+
+      <section class="card note">
+        <h2>安全提醒</h2>
+        <ul>
+          <li>此工具仅用于记录，不替代儿科医生诊疗建议。</li>
+          <li>若出现呼吸困难、面唇舌肿胀、反复呕吐、意识异常，请立即就医。</li>
+          <li>建议每次只新增 1 种食材，连续观察 3 天后再引入下一种。</li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
